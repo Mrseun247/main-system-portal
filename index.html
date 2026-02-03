@@ -349,7 +349,7 @@
             </select>
         </div>
         <button type="submit">Login</button>
-        <button type="button" id="signup-btn">Sign Up</button>
+        <button type="button" id="signup-btn" style="display: none;" disabled>Sign Up</button>
         <div id="login-message"></div>
     </form>
 </div>
@@ -951,11 +951,11 @@ document.addEventListener('DOMContentLoaded', function() {
         loginForm.addEventListener('submit', handleLogin);
     }
     
-    // Add signup button handler
-    var signupBtn = document.getElementById('signup-btn');
-    if (signupBtn) {
-        signupBtn.addEventListener('click', handleSignup);
-    }
+    // Add signup button handler (DISABLED)
+    // var signupBtn = document.getElementById('signup-btn');
+    // if (signupBtn) {
+    //     signupBtn.addEventListener('click', handleSignup);
+    // }
     
     // Initialize tab switching if logged in
     if (currentAdmin) {
@@ -1122,8 +1122,12 @@ function handleLogin(e) {
     });
 }
 
-// Handle signup
+// Handle signup (DISABLED - Can be enabled later)
 function handleSignup() {
+    alert('Signup is currently disabled. Please contact your administrator.');
+    return;
+    
+    /* DISABLED CODE - Uncomment to enable signup
     var email = document.getElementById('login-email').value;
     var password = document.getElementById('login-password').value;
     var role = document.getElementById('admin-role').value;
@@ -1177,6 +1181,7 @@ function handleSignup() {
             msg.textContent = res.message || 'Error creating admin account. Try test credentials: admin@school.com / admin123';
         }
     });
+    */ // END DISABLED CODE
 }
 
 // JSONP Helper with improved error handling
